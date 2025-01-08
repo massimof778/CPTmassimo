@@ -23,12 +23,19 @@ public class CPTmassimo1 {
 		con.drawImage(imgMM, 0,0);
 		con.repaint();
 		
-		char currentChar("p");
+		char chrMMA;
+		String strMMA;
+	
+		con.println("Give me a name");
+		strMMA = con.readLine();
+
+
+		chrMMA = firstchar(strMMA);
 		
 		//input
-		if (currentChar() = p)
+		if (chrMMA == 'p')
 		{
-			
+			con.println("skibid");
 		}
 		
 	
