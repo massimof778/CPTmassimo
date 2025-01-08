@@ -26,7 +26,6 @@ public class CPTmassimo1 {
 		char chrMMA;
 		String strMMA;
 	
-		con.println("Give me a name");
 		strMMA = con.readLine();
 
 
@@ -40,5 +39,13 @@ public class CPTmassimo1 {
 		
 	
 	
+	}
+	
+	
+	public static char firstchar(String strWord)
+	{
+		char chrFirst;
+		chrFirst = strWord.charAt(0);
+		return chrFirst;
 	}
 }
