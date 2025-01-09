@@ -6,21 +6,28 @@ import java.awt.image.*;
 
 public class CPTmassimo1 {
     public static void main(String[] args) {
+		
+		
+		
         // Console/global variables
+        
         int intBoardColour = 1;
         boolean bolGame = true;
-        String currentMenu = "main"; // Track which menu is active
+        
+        
+        String currentMenu = "main"; 
 
         int intWidth = 1280;
         int intHeight = 720;
         String strTitle = "Connect 4";
+        String strTitleP = "Connect4[Game]";
         String strTitleV = "Connect 4[ViewHighscore Menu]";
         String strTitleH = "Connect 4[Help Menu]";
         String strTitleC = "Connect 4[ChooseTheme Menu]";
         String strTitleS = "Connect 4[Secret Menu]";
 
         // Load images
-        BufferedImage imgMM, imgMMH, imgMMV, imgMMS;
+        BufferedImage imgMM, imgMMH, imgMMV, imgMMS,imgPB1,imgPB2,imgPB3;
 
         // MainMenu loop
         while (bolGame) {
@@ -40,8 +47,9 @@ public class CPTmassimo1 {
 
                 //  main menu input
                 if (chrMMA == 'p') {
-                    con.clear();
-                    con.println("skibid");
+                   
+                    con.closeWindow(); 
+                    currentMenu = "p"; 
                     
                 } else if (chrMMA == 'v') {
                     con.closeWindow();  
@@ -60,6 +68,57 @@ public class CPTmassimo1 {
                     con.closeConsole();
                     bolGame = false; 
                 }
+                
+                
+                 } else if (currentMenu.equals("p")) {
+					 
+                Console conP = new Console(strTitleP, intWidth, intHeight);
+                
+			if(intBoardColour == 1)
+			{
+				imgPB1 = conP.loadImage("PlayBoard1.jpg");
+				conP.drawImage(imgPB1, 0, 0);
+                conP.repaint();
+				
+				
+				
+			} else if(intBoardColour == 2) {
+				
+				imgPB2 = conP.loadImage("PlayBoard2.jpg");
+				conP.drawImage(imgPB2, 0, 0);
+                conP.repaint();
+				
+				
+				
+				
+			} else {
+				
+				imgPB3 = conP.loadImage("PlayBoard3.jpg");
+				conP.drawImage(imgPB3, 0, 0);
+                conP.repaint();
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+			
+			
+               
+                
+
+               
+
+                // Simulate user returning to main menu (modify as needed)
+                conP.readLine();
+                conP.closeWindow();
+                currentMenu = "main";
+                
+                
+			
             } else if (currentMenu.equals("v")) {
                 Console conV = new Console(strTitleV, intWidth, intHeight);
 
@@ -70,7 +129,7 @@ public class CPTmassimo1 {
                 conV.drawImage(imgMMV, 0, 0);
                 conV.repaint();
 
-                // User input for "V" menu
+                // Back
                 String strMMAV = conV.readLine();
                 char chrMMAV = firstchar(strMMAV);
 
@@ -88,12 +147,15 @@ public class CPTmassimo1 {
                 conH.drawImage(imgMMH, 0, 0);
                 conH.repaint();
 
-                // Simulate user returning to main menu (modify as needed)
-                conH.readLine();
-                conH.closeWindow();
-                currentMenu = "main";
+				//back
+               String strMMAV = conH.readLine();
+                char chrMMAV = firstchar(strMMAV);
+
+                if (chrMMAV == 'b') { 
+                    conH.closeWindow();
+                    currentMenu = "main"; 
                 
-                
+					}
             } else if (currentMenu.equals("c")) {
                 Console conC = new Console(strTitleC, intWidth, intHeight);
 
@@ -124,10 +186,14 @@ public class CPTmassimo1 {
                 conS.drawImage(imgMMS, 0, 0);
                 conS.repaint();
 
-                // Simulate user returning to main menu (modify as needed)
-                conS.readLine();
-                conS.closeConsole();
-                currentMenu = "main";
+				//back
+               String strMMAV = conS.readLine();
+                char chrMMAV = firstchar(strMMAV);
+                
+                 if (chrMMAV == 'b') { // Go back to the main menu
+                    conS.closeWindow();
+                    currentMenu = "main"; // Switch back to main menu
+                }
             }
         }
     }
