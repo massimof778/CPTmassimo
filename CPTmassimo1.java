@@ -17,13 +17,15 @@ public class CPTmassimo1 {
 	String strTitleV = "Connect 4[ViewHighscore Menu]";
 	String strTitleH = "Connect 4[Help Menu]";
 	String strTitleC = "Connect 4[ChooseTheme Menu]";
-
+	String strTitleS = "Connect 4[Secret Menu]";
 
 	Console con = new Console(strTitle,intWidth,intHeight);
 		
 	//load stuff (images, fileio)
 	BufferedImage imgMM = con.loadImage("MainMenu.jpg");	
 	BufferedImage imgMMH = con.loadImage("HelpMenu.jpg");	
+	BufferedImage imgMMV = con.loadImage("HighscoreMenu.jpg");
+	BufferedImage imgMMS = con.loadImage("SecretMenu.jpg");
 		
 		//main menu
 		
@@ -48,9 +50,13 @@ public class CPTmassimo1 {
 			
 			
 		} else if (chrMMA == 'v')
-		{
+		{ 
+			con.closeWindow();
 			
+			Console conV = new Console(strTitleV,intWidth,intHeight);
 			
+			conV.drawImage(imgMMV, 0,0);
+			conV.repaint();
 			
 			
 		} else if (chrMMA == 'h')
@@ -90,7 +96,12 @@ public class CPTmassimo1 {
 		} else if (chrMMA == 's')
 		{
 			con.clear();
-			con.closeConsole();
+			con.closeWindow();
+			
+			Console conS = new Console(strTitleS,intWidth,intHeight);
+			
+			conS.drawImage(imgMMS, 0,0);
+			conS.repaint();
 			
 		
 		
