@@ -74,29 +74,98 @@ public class CPTmassimo1 {
 					 
                 Console conP = new Console(strTitleP, intWidth, intHeight);
                 
-			if(intBoardColour == 1)
-			{
-				imgPB1 = conP.loadImage("PlayBoard1.jpg");
-				conP.drawImage(imgPB1, 0, 0);
-                conP.repaint();
+						//variables
+					String strplayer1;
+					String strplayer2;
+					int intplayer1wins;
+					int intplayer2wins;
+					int intchoice;
+					int intCount;
+				
+				
+					int intBoard[][];
+					intBoard = new int[5][6];
 				
 				
 				
-			} else if(intBoardColour == 2) {
-				
-				imgPB2 = conP.loadImage("PlayBoard2.jpg");
-				conP.drawImage(imgPB2, 0, 0);
-                conP.repaint();
 				
 				
 				
+				if(intBoardColour == 1)
+				{
+					imgPB1 = conP.loadImage("PlayBoard1.jpg");
+					conP.drawImage(imgPB1, 0, 0);
+					conP.repaint();
+					
+									
+									//name input
+							conP.println("give me each of your names");
+							strplayer1 = conP.readLine();
+							strplayer2 = conP.readLine();
+						
+						for(intCount = 1; intCount > 0 ; intCount++)
+						{
+							conP.println("Where do you wanna go " + strplayer1);
+								intchoice = conP.readInt();
+
+								// Check if the column choice is fine
+								if (intchoice < 0 || intchoice >= intBoard[0].length)
+								{
+									conP.println("Invalid column choice");
+									
+									
+								}
+								 else
+								{
+									// Place the piece in the lowest available row of the chosen column
+									boolean piecePlaced = false;
+									for (int row = intBoard.length - 1; row >= 0; row--) {
+										if (intBoard[row][intchoice] == 0) {
+											intBoard[row][intchoice] = 1;
+											piecePlaced = true;
+											break;
+										}
+									}
+									
+									// Handle the case where the column is full
+									if (!piecePlaced) {
+										conP.println("Column is full. Please choose another column.");
+									}
+								}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				}
 				
-			} else {
-				
-				imgPB3 = conP.loadImage("PlayBoard3.jpg");
-				conP.drawImage(imgPB3, 0, 0);
-                conP.repaint();
-				
+				} else if(intBoardColour == 2) {
+					
+					imgPB2 = conP.loadImage("PlayBoard2.jpg");
+					conP.drawImage(imgPB2, 0, 0);
+					conP.repaint();
+					
+					
+					
+					
+				} else {
+					
+					imgPB3 = conP.loadImage("PlayBoard3.jpg");
+					conP.drawImage(imgPB3, 0, 0);
+					conP.repaint();
+					
 				
 				
 				
